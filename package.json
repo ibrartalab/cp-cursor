@@ -1,0 +1,26 @@
+{
+  "name": "own-cursor",
+  "version": "1.0.0",
+  "description": "This is a NPM package for using custom cursors in your next project.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rollup -c"
+  },
+  "keywords": [
+    "custom",
+    "cursor",
+    "customizable"
+  ],
+  "author": "Ibrar Khan",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^4.13.0"
+  }
+}
