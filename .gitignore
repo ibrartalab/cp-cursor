@@ -1,2 +1,5 @@
 node_modules
 LICENSE
+package.json
+dist
+rollup.config.js

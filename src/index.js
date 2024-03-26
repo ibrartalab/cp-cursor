@@ -1,1 +1,1 @@
-export * from "./components/CursorMove.jsx";
+export * from './components/OwnPointers.jsx';
