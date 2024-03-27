@@ -1,6 +1,6 @@
 {
   "name": "own-cursor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a NPM package for using custom cursors in your next project.",
   "type": "module",
   "main": "dist/bundle.js",
