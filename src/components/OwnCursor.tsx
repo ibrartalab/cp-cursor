@@ -35,23 +35,27 @@ let cursorIcons: CursorIconsTypes = {
 };
 
 //Function to change Styles of cursor
-const changeCursorStyles = (iconStyles:IconsStyles) => {
-  if(!iconStyles){
-    Object.values(cursorIcons).forEach((icon) => {
-      icon.style = {
-        fontSize: cursorIconStyles.iconSize,
-        color: cursorIconStyles.borderColor,
-        backgroundColor: cursorIconStyles.bgColor,
-      };
-    });
-  };
-  Object.values(cursorIcons).forEach((icon) => {
-    icon.props.style = {
-      fontSize: iconStyles.iconSize,
-      color: iconStyles.borderColor,
-      backgroundColor: iconStyles.bgColor,
-    };
-  });
+const changeCursorStyles = (iconStyles: IconsStyles) => {
+  const updatedCursorIcons = {} as CursorIconsTypes;
+
+  for (let key in cursorIcons) {
+    const icon = cursorIcons[key];
+    const style = !iconStyles
+      ? {
+          fontSize: cursorIconStyles.iconSize,
+          color: cursorIconStyles.borderColor,
+          backgroundColor: cursorIconStyles.bgColor,
+        }
+      : {
+          fontSize: iconStyles.iconSize,
+          color: iconStyles.borderColor,
+          backgroundColor: iconStyles.bgColor,
+        };
+
+    updatedCursorIcons[key] = React.cloneElement(icon, { style });
+  }
+
+  cursorIcons = updatedCursorIcons;
 };
 
 //Function to change cursor
