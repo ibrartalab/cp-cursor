@@ -23,15 +23,15 @@ const cursorStyles: React.CSSProperties = {
 //Styles for cursor pointers
 const cursorIconStyles: IconsStyles =  {
   iconSize:"20px",
-  borderColor:"black",
-  bgColor:"white"
+  borderColor:"red",
+  bgColor:"black"
 };
 
 //Icons for cursor
 let cursorIcons: CursorIconsTypes = {
   hand: <FaRegHandPointer />,
   mouse: <LuMousePointer2 />,
-  text: <TbCursorText />,
+  input: <TbCursorText />,
 };
 
 //Function to change Styles of cursor
@@ -68,7 +68,7 @@ const changeCursor = (cursorName: string, icon: HTMLElement) => {
 };
 
 //Custom cursor component
-const CustomCursor = () => {
+const CPCursor = () => {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -149,9 +149,9 @@ const CustomCursor = () => {
       }}
     >
       {cursorIcons.mouse}
-      {cursorIcons.text}
+      {cursorIcons.input}
       {cursorIcons.hand}
     </div>
   );
 };
-export { CustomCursor, changeCursor,changeCursorStyles};
+export { CPCursor, changeCursor,changeCursorStyles};

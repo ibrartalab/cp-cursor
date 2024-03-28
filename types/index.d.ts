@@ -10,7 +10,7 @@ interface Position {
 interface CursorIconsTypes {
   hand: JSX.Element;
   mouse: JSX.Element;
-  text: JSX.Element;
+  input: JSX.Element;
 }
 //interface for visible and hidden of cursor icons
 interface iconVisibility {
