@@ -22,7 +22,7 @@ interface UseCursorProps {
 }
 
 interface IconsStyles{
-  iconSize:number;
+  iconSize:string;
   borderColor:string;
   bgColor:string;
 }

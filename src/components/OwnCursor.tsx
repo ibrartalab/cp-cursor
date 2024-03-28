@@ -22,7 +22,7 @@ const cursorStyles: React.CSSProperties = {
 
 //Styles for cursor pointers
 const cursorIconStyles: IconsStyles =  {
-  iconSize:20,
+  iconSize:"20px",
   borderColor:"black",
   bgColor:"white"
 };
@@ -44,12 +44,12 @@ const changeCursorStyles = (iconStyles: IconsStyles) => {
       ? {
           fontSize: cursorIconStyles.iconSize,
           color: cursorIconStyles.borderColor,
-          backgroundColor: cursorIconStyles.bgColor,
+          fill: cursorIconStyles.bgColor,
         }
       : {
           fontSize: iconStyles.iconSize,
           color: iconStyles.borderColor,
-          backgroundColor: iconStyles.bgColor,
+          fill: iconStyles.bgColor,
         };
 
     updatedCursorIcons[key] = React.cloneElement(icon, { style });
