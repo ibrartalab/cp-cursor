@@ -1,30 +1,21 @@
+import { JSX } from "react";
 import { IconType } from "react-icons";
 
 // Interface for cursor position
-interface Position {
-  x: number;
-  y: number;
-}
+type Position = {x: number; y: number;};
+type IconVisibility = { visible: string; hidden: string; };
 
 // Interface for cursor icon definitions
-interface CursorIconsTypes {
-  hand: JSX.Element;
-  mouse: JSX.Element;
-  input: JSX.Element;
-}
-//interface for visible and hidden of cursor icons
-interface iconVisibility {
-  visible: string;
-  hidden: string;
-}
-interface UseCursorProps {
-  data: Object;
+interface CursorIconTypes {
+  hand: React.ReactNode;
+  mouse: React.ReactNode;
+  input: React.ReactNode;
 }
 
-interface IconsStyles{
+interface IconStyles{
   iconSize:string;
   borderColor:string;
   bgColor:string;
 }
 
-export { Position, CursorIconsTypes, iconVisibility, UseCursorProps ,IconsStyles};
+export { Position, CursorIconTypes, IconVisibility ,IconStyles};

@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import { FaRegHandPointer } from "react-icons/fa";
 import { LuMousePointer2 } from "react-icons/lu";
 import { TbCursorText } from "react-icons/tb";
-import {CursorIconsTypes, Position, iconVisibility,IconsStyles } from "../../types/index";
-import { changeCursorStyles } from "../utils/changeCursorStyles";
+import {CursorIconTypes, Position, IconVisibility,IconStyles } from "../../types/index";
+import useChangeIcon from "../hooks/useChangeIcon";
+
 
 // Dynamic cursor icons visibility
-const { visible, hidden }: iconVisibility = {
+const { visible, hidden }: IconVisibility = {
   visible: "block",
   hidden: "none",
 };
 
 // cursorStyles object
-const cursorStyles: React.CSSProperties = {
+const cursorContainerBaseStyles: React.CSSProperties = {
   cursor: "none",
   position: "fixed",
   top: 0,
@@ -21,22 +22,10 @@ const cursorStyles: React.CSSProperties = {
   pointerEvents: "none",
 };
 
-
-
-//Icons for cursor
-export let cursorIcons: CursorIconsTypes = {
-  hand: <FaRegHandPointer />,
-  mouse: <LuMousePointer2 />,
-  input: <TbCursorText />,
-};
-
-
-
-
-
 //Custom cursor component
 const Cursor = () => {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+  const {cursorIcons} = useChangeIcon();
   
   useEffect(() => {
     const cursorBox = document.querySelector(".cursor-box");
@@ -112,7 +101,7 @@ const Cursor = () => {
       className="cursor-box"
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
-        ...cursorStyles,
+        ...cursorContainerBaseStyles,
       }}
     >
       {cursorIcons.mouse}
