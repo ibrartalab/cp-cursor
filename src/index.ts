@@ -1,1 +1,1 @@
-export {CPCursor,changeCursor,changeCursorStyles} from "./components/OwnCursor";
+export {CPCursor,changeCursor,changeCursorStyles} from "./components/Cursor";

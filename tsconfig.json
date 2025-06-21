@@ -3,6 +3,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "declaration": true
     // other options...
   }
   // other settings...

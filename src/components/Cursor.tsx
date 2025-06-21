@@ -3,6 +3,7 @@ import { FaRegHandPointer } from "react-icons/fa";
 import { LuMousePointer2 } from "react-icons/lu";
 import { TbCursorText } from "react-icons/tb";
 import {CursorIconsTypes, Position, iconVisibility,IconsStyles } from "../../types/index";
+import { changeCursorStyles } from "../utils/changeCursorStyles";
 
 // Dynamic cursor icons visibility
 const { visible, hidden }: iconVisibility = {
@@ -20,57 +21,23 @@ const cursorStyles: React.CSSProperties = {
   pointerEvents: "none",
 };
 
-//Styles for cursor pointers
-const cursorIconStyles: IconsStyles =  {
-  iconSize:"20px",
-  borderColor:"red",
-  bgColor:"black"
-};
+
 
 //Icons for cursor
-let cursorIcons: CursorIconsTypes = {
+export let cursorIcons: CursorIconsTypes = {
   hand: <FaRegHandPointer />,
   mouse: <LuMousePointer2 />,
   input: <TbCursorText />,
 };
 
-//Function to change Styles of cursor
-const changeCursorStyles = (iconStyles: IconsStyles) => {
-  const updatedCursorIcons = {} as CursorIconsTypes;
 
-  for (let key in cursorIcons) {
-    const icon = cursorIcons[key];
-    const style = !iconStyles
-      ? {
-          fontSize: cursorIconStyles.iconSize,
-          color: cursorIconStyles.borderColor,
-          fill: cursorIconStyles.bgColor,
-        }
-      : {
-          fontSize: iconStyles.iconSize,
-          color: iconStyles.borderColor,
-          fill: iconStyles.bgColor,
-        };
 
-    updatedCursorIcons[key] = React.cloneElement(icon, { style });
-  }
 
-  cursorIcons = updatedCursorIcons;
-};
-
-//Function to change cursor
-const changeCursor = (cursorName: string, icon: HTMLElement) => {
-  let newIcons = { ...cursorIcons };
-  if (cursorName in newIcons) {
-    newIcons[cursorName] = icon;
-    cursorIcons = newIcons;
-  }
-};
 
 //Custom cursor component
-const CPCursor = () => {
+const Cursor = () => {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-
+  
   useEffect(() => {
     const cursorBox = document.querySelector(".cursor-box");
     if (!cursorBox) return;
@@ -154,4 +121,4 @@ const CPCursor = () => {
     </div>
   );
 };
-export { CPCursor, changeCursor,changeCursorStyles};
+export { Cursor};
