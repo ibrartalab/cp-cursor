@@ -1,18 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { FaRegHandPointer } from "react-icons/fa";
-import { LuMousePointer2 } from "react-icons/lu";
-import { TbCursorText } from "react-icons/tb";
-import {CursorIconTypes, Position, IconVisibility,IconStyles } from "../../types/index";
+import { Position, IconVisibility } from "../../types/index";
 import useChangeIcon from "../hooks/useChangeIcon";
 
-
-// Dynamic cursor icons visibility
+/**
+ * @description
+ * IconVisibility interface
+ * This interface defines the visibility styles for cursor icons.
+ * It includes properties for visible and hidden states.
+ * @typedef {Object} IconVisibility
+ * @property {string} visible - The CSS display value for visible icons.
+ * @property {string} hidden - The CSS display value for hidden icons.
+ */
 const { visible, hidden }: IconVisibility = {
   visible: "block",
   hidden: "none",
 };
 
-// cursorStyles object
+/**
+ * @description
+ * cursorContainerBaseStyles
+ * This constant defines the base styles for the custom cursor container.
+ * It includes properties for cursor style, position, z-index, and pointer events.
+ * @type {React.CSSProperties}
+ * @property {string} cursor - The CSS cursor style for the custom cursor.
+ * @property {string} position - The CSS position property for the custom cursor.
+ * @property {number} zIndex - The CSS z-index value for the custom cursor.
+ * @property {string} pointerEvents - The CSS pointer-events property for the custom cursor.
+ * @example
+ * const cursorContainerBaseStyles: React.CSSProperties = {
+ *   cursor: "none",
+ *  position: "fixed",
+ *  top: 0,
+ * left: 0,
+ * zIndex: 9999,
+ * pointerEvents: "none",
+ */
 const cursorContainerBaseStyles: React.CSSProperties = {
   cursor: "none",
   position: "fixed",
@@ -22,11 +44,18 @@ const cursorContainerBaseStyles: React.CSSProperties = {
   pointerEvents: "none",
 };
 
-//Custom cursor component
+/**
+ * 
+ * @returns {JSX.Element}
+ * @description
+ * Cursor component
+ * This component renders a custom cursor that changes its appearance based on the user's interaction with different elements on the page.
+ * It listens for mouse events and updates the cursor position and icon visibility accordingly.
+ */
 const Cursor = () => {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const {cursorIcons} = useChangeIcon();
-  
+  const { cursorIcons } = useChangeIcon();
+
   useEffect(() => {
     const cursorBox = document.querySelector(".cursor-box");
     if (!cursorBox) return;
@@ -110,4 +139,4 @@ const Cursor = () => {
     </div>
   );
 };
-export { Cursor};
+export { Cursor };
