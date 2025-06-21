@@ -8,9 +8,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true, // Important for generating type definitions (.d.ts files)
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "declaration": true,           // Important for generating type definitions (.d.ts files)
+    "declarationDir": "./dist",    // Explicitly set declaration output directory
+    "outDir": "./dist",            // Compiled JS output directory
+    "rootDir": "./src",            // Source directory
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
