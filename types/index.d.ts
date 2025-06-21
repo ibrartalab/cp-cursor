@@ -7,9 +7,9 @@ type IconVisibility = { visible: string; hidden: string; };
 
 // Interface for cursor icon definitions
 interface CursorIconTypes {
-  hand: React.ReactNode;
-  mouse: React.ReactNode;
-  input: React.ReactNode;
+  hand: React.ReactNode | React.JSX.Element;
+  mouse: React.ReactNode | React.JSX.Elementt;
+  input: React.ReactNode | React.JSX.Elementt;
 }
 
 interface IconStyles{

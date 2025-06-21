@@ -46,15 +46,12 @@ const useChangeIcon = () => {
   const [iconStyles, setIconStyles] = React.useState<IconStyles>(defaultCursorIconStyles);
   const [cursorIcons, setCursorIcons] = React.useState<CursorIconTypes>(() => {
     // Initialize cursor icons with default styles
-    const styledIcons: CursorIconTypes = {
-      hand: "",
-      mouse: "",
-      input: ""
-    };
+    const styledIcons: CursorIconTypes = {} as CursorIconTypes;
     for (const key in initialCursorIcons) {
-      if (initialCursorIcons.hasOwnProperty(key)) {
-        const icon = initialCursorIcons[key];
-        styledIcons[key] = React.cloneElement(icon, {
+      if(Object.prototype.hasOwnProperty.call(initialCursorIcons, key)) {
+        const iconKey = key as keyof CursorIconTypes;
+        const icon = initialCursorIcons[iconKey];
+        styledIcons[iconKey] = React.cloneElement(icon, {
           style: {
             fontSize: iconStyles.iconSize,
             color: iconStyles.borderColor,
@@ -62,6 +59,10 @@ const useChangeIcon = () => {
           },
         });
       }
+      else {
+        console.warn(`Cursor icon "${key}" is not defined in initialCursorIcons.`);
+      }
+      
     }
     return styledIcons;
   });
@@ -102,15 +103,16 @@ const useChangeIcon = () => {
   const changeCursorStyles = (iconStyles: IconStyles) => {
     setIconStyles(iconStyles);
     const updatedCursorIcons: CursorIconTypes = {
-      hand: "",
-      mouse: "",
-      input: ""
+      hand: cursorIcons.hand,
+      mouse: cursorIcons.mouse,
+      input: cursorIcons.input,
     };
 
     for (const key in cursorIcons) {
-      if (cursorIcons.hasOwnProperty(key)) {
-        const icon = cursorIcons[key];
-        updatedCursorIcons[key] = React.cloneElement(icon, {
+      if(Object.prototype.hasOwnProperty.call(cursorIcons, key)) {
+        const iconKey = key as keyof CursorIconTypes;
+        const icon = cursorIcons[iconKey];
+        updatedCursorIcons[iconKey] = React.cloneElement(icon, {
           style: {
             fontSize: iconStyles.iconSize,
             color: iconStyles.borderColor,
