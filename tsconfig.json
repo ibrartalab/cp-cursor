@@ -1,10 +1,19 @@
+// tsconfig.json
 {
   "compilerOptions": {
+    "target": "es2019",
+    "module": "esnext",
     "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true, // Important for generating type definitions (.d.ts files)
+    "outDir": "./dist",
+    "rootDir": "./src",
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "declaration": true
-    // other options...
-  }
-  // other settings...
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
